@@ -25,7 +25,7 @@
 			
 				<div class="col-md-offset-3 col-md-5"> 
 				
-					<form class="form-default" role="form" action="student/login/busTripSelection" method="post">
+					<form class="form-default" role="form" action="submitBusTripSelection" method="post">
 			
 						<div class="panel panel-info">
 									

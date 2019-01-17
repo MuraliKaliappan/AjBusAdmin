@@ -25,7 +25,7 @@
 			
 				<div class="col-md-offset-1 col-md-9"> 
 				
-					<form class="form-default" role="form" action=student/login/additionalDetails method="post">
+					<form class="form-default" role="form" action="submitAdditionalDetails" method="post">
 			
 						<div class="page-header" >	
 						

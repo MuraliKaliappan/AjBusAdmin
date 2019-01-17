@@ -102,22 +102,23 @@ public class StudentController {
 	}
 
 	
-	@RequestMapping(value = "/login/busTripSelection", method = RequestMethod.POST)
+	@RequestMapping(value = "/submitBusTripSelection", method = RequestMethod.POST)
 	public ModelAndView submitbusTripSelection(@ModelAttribute("busTrip") BusTripSelectionModel busTrip) {
 		
 		
 		studentService.saveBusTrip(busTrip);
-		ModelAndView model = new ModelAndView("homeOfStudent");
+		ModelAndView model = new ModelAndView("home");
+		model.addObject("result", "Your Bus Trip Selection was successfully saved");
 		return model;
 
 	}
 
 	
 
-	@RequestMapping(value = "/login/additionalDetails", method = RequestMethod.POST)
+	@RequestMapping(value = "/submitAdditionalDetails", method = RequestMethod.POST)
 	public ModelAndView submitAdditionalDetails(@ModelAttribute("additionalDetails") AdditionalDetailsModel additionalDetailsModel) {
 		
-		ModelAndView model = new ModelAndView("homeOfStudent");
+		ModelAndView model = new ModelAndView("home");
 		return model;
 
 	}
