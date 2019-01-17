@@ -14,6 +14,30 @@
 			Change Password  
 		</title>
 		
+		<script type="text/javascript">
+		
+		function checkPwd(){
+			
+			var pwd 		= $("input[name='password']").val();
+			var confirmPwd	= $("input[name='confirmPwd']").val();
+			if(pwd == confirmPwd) {
+				return true;
+			} else {
+				alertify.alert("Warning...!" , "mismatched confirm password");
+				return false;
+			}
+				
+		}
+		
+		$("#changePasswordForm").submit(function(event){
+			console.log(event);
+			if(checkPwd() == false) {
+				event.preventDefault();
+			}
+		})
+		
+		</script>
+		
 	</head>
 	
 	
@@ -26,7 +50,7 @@
 			
 				<div class="col-md-offset-3 col-md-5"> 
 				
-					<form class="form-default" role="form">
+					<form class="form-default" role="form" action="submitPasswordChange" method="post" id="changePasswordForm">
 			
 						<div class="panel panel-info">
 									
@@ -35,6 +59,10 @@
 								<div class="panel-heading "> <legend align="center"> <strong> Change Password </strong> </legend> </div>
 								
 								<div class="panel-body">
+								
+									<div class="row form-group">
+										<div class="col-md-4"> <input type="hidden" class="form-control" name="studentMail" value="${studentMail}" /> </div>
+									</div>
 								
 									<div class="row form-group">
 										<div class="col-md-4"> <label class="control-label" for="old"> Old Password : </label> </div>

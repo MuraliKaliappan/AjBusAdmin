@@ -2,11 +2,21 @@ package com.collegebus.model;
 
 public class PasswordChangeModel {
 
+	private String studentMail;
+	
 	private String old;
 	
 	private String newPwd;
 	
 	private String confirm;
+	
+	public String getStudentMail() {
+		return studentMail;
+	}
+
+	public void setStudentMail(String studentMail) {
+		this.studentMail = studentMail;
+	}
 
 	public String getOld() {
 		return old;

@@ -26,9 +26,14 @@
 			
 				<div class="col-md-offset-1 col-md-9"> 
 				
-					<form class="form-default" role="form">
+					<form class="form-default" role="form" action="submitUpdateForm" method="post">
 			
 						<div class="page-header" >	
+						
+							<div class="row form-group">
+								<div class="col-md-3"> <input type="hidden" class="form-control" name="studentMail" value="${studentMail}" /> </div>
+							</div>
+								
 						
 							<div class="row form-group">
 								<div class="col-md-3"> <label class="control-label" for="name"> Name : </label> </div>

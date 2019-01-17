@@ -10,4 +10,10 @@ public interface StudentDao {
 	public StudentEntity getStudentById(String emailId);
 	
 	public void saveBusTripSelection(BusTripEntity busTripEntity);
+	
+	public void saveAdditionalDetails(StudentEntity studentEntity);
+	
+	public void changePassword(StudentEntity studentEntity);
+	
+	public void update(StudentEntity studentEntity);
 }

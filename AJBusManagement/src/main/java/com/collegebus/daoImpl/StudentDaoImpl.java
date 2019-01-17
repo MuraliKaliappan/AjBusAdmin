@@ -38,6 +38,34 @@ public class StudentDaoImpl implements StudentDao {
 		
 		sessionFactory.getCurrentSession().save(busTripEntity);
 	}
+
+
+	@Override
+	public void saveAdditionalDetails(StudentEntity studentEntity) {
+		// TODO Auto-generated method stub
+		sessionFactory.getCurrentSession().save(studentEntity);
+	}
+
+
+
+
+	@Override
+	public void changePassword(StudentEntity studentEntity) {
+		// TODO Auto-generated method stub
+		
+
+		sessionFactory.getCurrentSession().update(studentEntity);;
+		
+	}
+
+
+	@Override
+	public void update(StudentEntity studentEntity) {
+		// TODO Auto-generated method stub
+		
+		sessionFactory.getCurrentSession().update(studentEntity);;
+		
+	}
 	
 	
 }

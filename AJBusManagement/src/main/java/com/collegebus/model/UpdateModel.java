@@ -2,6 +2,8 @@ package com.collegebus.model;
 
 public class UpdateModel {
 
+	private String studentMail;
+	
 	private String name;
 	
 	private String dob;
@@ -15,6 +17,16 @@ public class UpdateModel {
 	private String emergency;
 	
 	private String bloodGroup;
+
+
+	public String getStudentMail() {
+		return studentMail;
+	}
+
+	public void setStudentMail(String studentMail) {
+		this.studentMail = studentMail;
+	}
+
 
 	public String getName() {
 		return name;

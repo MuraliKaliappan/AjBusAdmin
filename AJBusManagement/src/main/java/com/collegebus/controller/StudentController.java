@@ -13,7 +13,9 @@ import org.springframework.web.servlet.ModelAndView;
 import com.collegebus.entity.StudentEntity;
 import com.collegebus.model.AdditionalDetailsModel;
 import com.collegebus.model.BusTripSelectionModel;
+import com.collegebus.model.PasswordChangeModel;
 import com.collegebus.model.StudentLoginModel;
+import com.collegebus.model.UpdateModel;
 import com.collegebus.service.StudentService;
 
 @Controller
@@ -43,16 +45,20 @@ public class StudentController {
 	
 	
 	@RequestMapping(value = "/showUpdate", method = RequestMethod.GET)
-	public String showUpdate() {
-		logger.info("Welcome to the Update Page ");
-		return "update";
+	public ModelAndView showUpdateForm(@RequestParam("userName") String studentMail) {
+		logger.info("Welcome to the additional details page " +  studentMail);
+		ModelAndView model = new ModelAndView("update");
+		model.addObject("studentMail",  studentMail);
+		return model;
 	}
 	
 	
 	@RequestMapping(value = "/showPasswordChange", method = RequestMethod.GET)
-	public String showPasswordChange() {
-		logger.info("Welcome to the Password Change page ");
-		return "passwordChange";
+	public ModelAndView showPasswordChange(@RequestParam("userName") String studentMail) {
+		logger.info("Welcome to the additional details page " +  studentMail);
+		ModelAndView model = new ModelAndView("passwordChange");
+		model.addObject("studentMail",  studentMail);
+		return model;
 	}
 	
 	
@@ -102,6 +108,17 @@ public class StudentController {
 	}
 
 	
+	@RequestMapping(value = "/submitAdditionalDetails", method = RequestMethod.POST)
+	public ModelAndView submitAdditionalDetails(@ModelAttribute("additionalDetails") AdditionalDetailsModel additionalDetailsModel) {
+		
+		studentService.saveAdditionalDetails(additionalDetailsModel);
+		ModelAndView model = new ModelAndView("home");
+		model.addObject("result", "Your Additional Details was successfully saved");
+		return model;
+
+	}
+
+	
 	@RequestMapping(value = "/submitBusTripSelection", method = RequestMethod.POST)
 	public ModelAndView submitbusTripSelection(@ModelAttribute("busTrip") BusTripSelectionModel busTrip) {
 		
@@ -114,13 +131,36 @@ public class StudentController {
 	}
 
 	
-
-	@RequestMapping(value = "/submitAdditionalDetails", method = RequestMethod.POST)
-	public ModelAndView submitAdditionalDetails(@ModelAttribute("additionalDetails") AdditionalDetailsModel additionalDetailsModel) {
+	@RequestMapping(value = "/submitPasswordChange", method = RequestMethod.POST)
+	public ModelAndView submitPasswordChange(@ModelAttribute("passwordChange") PasswordChangeModel passwordChangeModel ) {
 		
 		ModelAndView model = new ModelAndView("home");
+		
+		StudentEntity studentEntity = studentService.getStudentByEmail(passwordChangeModel.getStudentMail());
+		
+		if(studentEntity.getPassword().equals(passwordChangeModel.getOld())){
+				studentService.changePassword(passwordChangeModel);
+				model.addObject("result", "Your Old Password was successfully Changed as New Password");
+		} else {
+			model.addObject("result", "Your Old Password was incorrect");
+		}
 		return model;
 
 	}
 
+	
+	@RequestMapping(value = "/submitUpdate", method = RequestMethod.POST)
+	public ModelAndView submitUpdate(@ModelAttribute("passwordChange") UpdateModel updateModel ) {
+		
+		ModelAndView model = new ModelAndView("home");
+		
+		studentService.update(updateModel);
+		
+		return model;
+
+	}
+
+	
+
+	
 }

@@ -9,19 +9,41 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 		
 		<link rel="stylesheet" href="resources\bootstrap-3.3.7-dist\css\bootstrap.css">
+
 		<link rel="stylesheet" href="resources\bootstrap-3.3.7-dist\css\bootstrap.min.css">
-		
-		<script src="resources\jquery-3.3.1\jquery.js"></script>
-		
-		<script src="resources\bootstrap-3.3.7-dist\js\bootstrap.min.js"></script>
-		
+
+<script src="resources\jquery-3.3.1\jquery.js"></script>
+
+<script src="resources\bootstrap-3.3.7-dist\js\bootstrap.min.js"></script>
+
+<!-- Alertify Java script included -->
+<script src="resources\alertifyjs\alertify.min.js"></script>
+
+<!-- CSS -->
+<link rel="stylesheet" href="resources\alertifyjs\css\alertify.min.css"/>
+<!-- Default theme -->
+<link rel="stylesheet" href="resources\alertifyjs\css\themes\default.min.css"/>
+<!-- Semantic UI theme -->
+<link rel="stylesheet" href="resources\alertifyjs\css\themes\semantic.min.css"/>
+<!-- Bootstrap theme -->
+<link rel="stylesheet" href="resources\alertifyjs\css\themes\bootstrap.min.css"/>
+
 		<title>
 			Student's Dashboard
 		</title>
 
 		<script type="text/javascript">
 			$(document).ready(function() {
-				debugger;
+				
+				var result = "${result}";
+				
+				if(result != "") {
+					alertify.alert("Error..!", result, function(){
+						window.location.href = '/AJBusManagement/';
+					});		
+				}
+				
+				
 				var studentMail = "${studentMail}";
 				if(studentMail != "") {
 					sessionStorage.setItem("user",studentMail);
