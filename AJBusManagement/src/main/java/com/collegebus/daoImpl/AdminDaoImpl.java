@@ -20,7 +20,6 @@ public class AdminDaoImpl implements AdminDao {
 	
 	@Override
 	public AdminEntity getAdminByUserName(String adminUserName) {
-		// TODO Auto-generated method stub
 		
 		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(AdminEntity.class);
 		

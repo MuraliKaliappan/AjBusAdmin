@@ -16,4 +16,6 @@ public interface StudentDao {
 	public void changePassword(StudentEntity studentEntity);
 	
 	public void update(StudentEntity studentEntity);
+
+	public BusTripEntity getBustTripByStudentEmail(String emaildId);
 }

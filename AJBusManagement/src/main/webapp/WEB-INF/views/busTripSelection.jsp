@@ -11,7 +11,7 @@
 		
 		<title>
 			Bus Trip Selection  
-		</title>
+		</title>		
 		
 	</head>
 	
@@ -25,7 +25,7 @@
 			
 				<div class="col-md-offset-3 col-md-5"> 
 				
-					<form class="form-default" role="form" action="submitBusTripSelection" method="post">
+					<form class="form-default" role="form" action="submitBusTripSelection" method="post" modelAttribute="busTripEntity">
 			
 						<div class="panel panel-info">
 									
@@ -45,11 +45,11 @@
 										<div class="col-md-6"> 
 											<div class="input-group">
 												<span class="input-group-addon"> <i class="glyphicon glyphicon-map-marker"> </i> </span>
-												<select class="form-control" name="area"> 
+												<select class="form-control" name="area" ${empty busTripEntity ? '' : 'disabled'}> 
 													<option disabled> Select Area </option>
-													<option> Rajapalayam </option>
-													<option> Srivilliputur </option>
-													<option> Sivakasi </option>
+													<option ${busTripEntity.area == 'Rajapalayam' ? 'selected' :''} > Rajapalayam </option>
+													<option ${busTripEntity.area == 'Srivilliputur' ? 'selected' :''}> Srivilliputur </option>
+													<option ${busTripEntity.area == 'Sivakasi' ? 'selected' :''}> Sivakasi </option>
 												</select> 
 											</div>
 										</div>
@@ -60,10 +60,10 @@
 										<div class="col-md-6"> 
 											<div class="input-group">
 												<span class="input-group-addon"> <i class="glyphicon glyphicon-transfer"> </i> </span>
-												<select class="form-control" name="trip"> 
+												<select class="form-control" name="trip" ${empty busTripEntity ? '' : 'disabled'}> 
 													<option disabled> Select Trip </option>
-													<option> I Trip </option>
-													<option> II Trip </option>
+													<option ${busTripEntity.trip == 'I Trip' ? 'selected' :''}> I Trip </option>
+													<option ${busTripEntity.trip == 'II Trip' ? 'selected' :''}> II Trip </option>
 												</select> 
 											</div>
 										</div>
@@ -75,7 +75,7 @@
 							
 							<div class="row form-group">
 								<div class="col-md-offset-8">
-									<button type="submit" class="btn btn-success"> Proceed </button> 
+									<button type="submit" class="btn btn-success" ${empty busTripEntity ? '' : 'disabled'}> Proceed </button> 
 									<button type="button" class="btn btn-danger"> Cancel </button> 
 								</div>
 							</div>

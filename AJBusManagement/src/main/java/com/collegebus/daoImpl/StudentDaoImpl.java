@@ -2,11 +2,14 @@ package com.collegebus.daoImpl;
 
 import javax.transaction.Transactional;
 
+import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.collegebus.dao.StudentDao;
+import com.collegebus.entity.AdminEntity;
 import com.collegebus.entity.BusTripEntity;
 import com.collegebus.entity.StudentEntity;
 
@@ -33,17 +36,23 @@ public class StudentDaoImpl implements StudentDao {
 
 
 	@Override
-	public void saveBusTripSelection(BusTripEntity busTripEntity) {
-		// TODO Auto-generated method stub
-		
+	public void saveBusTripSelection(BusTripEntity busTripEntity) {		
 		sessionFactory.getCurrentSession().save(busTripEntity);
+	}
+	
+	public BusTripEntity getBustTripByStudentEmail(String emailId) {
+		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(BusTripEntity.class);
+		StudentEntity entity = getStudentById(emailId);
+		BusTripEntity busEntity = (BusTripEntity) criteria.add(Restrictions.eq("student",entity)).uniqueResult();
+		 
+		return busEntity;	
 	}
 
 
 	@Override
 	public void saveAdditionalDetails(StudentEntity studentEntity) {
 		// TODO Auto-generated method stub
-		sessionFactory.getCurrentSession().save(studentEntity);
+		sessionFactory.getCurrentSession().update(studentEntity);
 	}
 
 
@@ -61,9 +70,8 @@ public class StudentDaoImpl implements StudentDao {
 
 	@Override
 	public void update(StudentEntity studentEntity) {
-		// TODO Auto-generated method stub
-		
-		sessionFactory.getCurrentSession().update(studentEntity);;
+		// TODO Auto-generated method stub		
+		sessionFactory.getCurrentSession().update(studentEntity);
 		
 	}
 	

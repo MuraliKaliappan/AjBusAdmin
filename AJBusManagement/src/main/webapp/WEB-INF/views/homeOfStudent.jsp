@@ -35,11 +35,11 @@
 		<script type="text/javascript">
 			$(document).ready(function() {
 				
-				var result = "${result}";
-				
+				var result 		= "${result}";
+				var alertHeader = "${alertHeader}" 
 				if(result != "") {
-					alertify.alert("Error..!", result, function(){
-						window.location.href = '/AJBusManagement/';
+					alertify.alert(alertHeader, result, function(){
+						window.location.href = '/AJBusManagement/student/login';
 					});		
 				}
 				
@@ -56,27 +56,27 @@
 				
 				
 				$(".nav a[href='#additionalDetails']").click(function() {
-					$('#additionalDetails').load('showAdditionalDetails?userName='+studentMail);
+					$('#additionalDetails').load('showAdditionalDetails?userName='+sessionStorage.getItem("user"));
 				})
 		
 				$(".nav a[href='#busTripSelection']").click(function() {
-					$('#busTripSelection').load('showBusTripSelection?userName='+studentMail);
+					$('#busTripSelection').load('showBusTripSelection?userName='+sessionStorage.getItem("user"));
 				})
 		
 				$(".nav a[href='#updateForm']").click(function() {
-					$('#updateForm').load('showUpdate?userName='+studentMail);
+					$('#updateForm').load('showUpdate?userName='+sessionStorage.getItem("user"));
 				})
 		
 				$(".nav a[href='#passwordChange']").click(function() {
-					$('#passwordChange').load('showPasswordChange?userName='+studentMail);
+					$('#passwordChange').load('showPasswordChange?userName='+sessionStorage.getItem("user"));
 				})
 		
 				$(".nav a[href='#paymentSlip']").click(function() {
-					$('#paymentSlip').load('showPaymentSlip?userName='+studentMail);
+					$('#paymentSlip').load('showPaymentSlip?userName='+sessionStorage.getItem("user"));
 				})
 		
 				$(".nav a[href='#busId']").click(function() {
-					$('#busId').load('showBusId?userName='+studentMail);
+					$('#busId').load('showBusId?userName='+sessionStorage.getItem("user"));
 				})
 				
 				$(".nav a[href='#logout']").click(function() {	

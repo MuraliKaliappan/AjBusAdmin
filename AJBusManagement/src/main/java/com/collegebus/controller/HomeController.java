@@ -48,8 +48,10 @@ public class HomeController {
 		if (studentService.getStudentByEmail(registration.getEmailId()) == null) {
 			studentService.saveRegistration(registration);
 			model.addObject("result", "Your Registration was successfully saved");
+			model.addObject("alertHeader", "success");
 		} else {
 			model.addObject("result", "Username (EMail ID) already exists!");
+			model.addObject("alertHeader", "Error!");
 		}
 
 		return model;

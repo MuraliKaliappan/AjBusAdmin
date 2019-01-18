@@ -44,40 +44,39 @@
 																
 								<div class="row form-group">
 									<label class="control-label col-md-3" for="name"> Name : </label> 
-									<div class="col-md-7"> <input type="text" value="FULLNAME" class="form-control" id="name" disabled> </div>					
+									<div class="col-md-7"> <input type="text" value="${studentEntity.studentName}" class="form-control" id="name" disabled> </div>					
 								</div>	
 												
 														
 								<div class="row form-group">
 									<label class="control-label col-md-3" for="degree"> Degree : </label> 
-									<div class="col-md-7"> <input type="text" value="UG" class="form-control" id="degree" disabled> </div>
+									<div class="col-md-7"> <input type="text" value="${studentEntity.degree}" class="form-control" id="degree" disabled> </div>
 								</div>
 
 								<div class="row form-group">
 									<label class="control-label col-md-3" for="year"> Year of Studying :</label>
-									<div class="col-md-7"> <input type="text" value="I" class="form-control" id="year" disabled> </div>
+									<div class="col-md-7"> <input type="text" value="${studentEntity.studyingYear}" class="form-control" id="year" disabled> </div>
 								</div>
 							
 								<div class="row form-group">
 									<label class="control-label col-md-3" for="mail"> E-Mail ID : </label> 
-									<div class="col-md-7"> <input type="email" value="x@gmail.com" class="form-control" id="mail" disabled> </div>
+									<div class="col-md-7"> <input type="email" value="${studentEntity.emailId}" class="form-control" id="mail" disabled> </div>
 								</div>
 							
 								<div class="row form-group">
 									<label class="control-label col-md-3" for="area"> Area : </label> 
-									<div class="col-md-7"> <input type="text" value="Rjplm" class="form-control" id="area" disabled> </div>
+									<div class="col-md-7"> <input type="text" value="${studentEntity.busTripEntity.area}" class="form-control" id="area" disabled> </div>
 								</div>
 								
 								<div class="row form-group">
 									<label class="control-label col-md-3" for="trip"> Trip : </label> 
-									<div class="col-md-7"> <input type="text" value="I" class="form-control" id="trip" disabled> </div>
-								</div>
+									<div class="col-md-7"> <input type="text" value="${studentEntity.busTripEntity.trip}" class="form-control" id="trip" disabled> </div>
+								</div>	
 								
 								<div class="row form-group">
-									<label class="control-label col-md-3" for="fee"> Bus Fees : </label> 
-									<div class="col-md-7"> <input type="number" value="8000" class="form-control" id="fee" disabled> </div>
-								</div>
-								
+									<label class="control-label col-md-3" for="trip"> Amount : </label> 
+									<div class="col-md-7"> <input type="text" value="" class="form-control" id="trip" disabled> </div>
+								</div>																							
 							</fieldset>
 						</div>
 						
@@ -93,7 +92,7 @@
 					
 		</div>
 		
-		<div class="container">
+		<!-- <div class="container">
 			<div class="row">
 				<div class="col-md-5">
 					<div class="alert alert-warning alert-dismissable"> 
@@ -102,7 +101,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> -->
 		
 	</body>
 	

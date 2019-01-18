@@ -26,6 +26,12 @@ public class BusTripEntity {
 	
 	@Column(name="trip")
 	private String trip;
+	
+	@Column(name="bus_fee")
+	private Double busFee;
+	
+	@Column(name="valid_up_to")
+	private String validUpTo;
 
 	@OneToOne
 	@JoinColumn(name="email_id")
@@ -62,8 +68,20 @@ public class BusTripEntity {
 	public void setStudent(StudentEntity student) {
 		this.student = student;
 	}
-	
 
-	
+	public Double getBusFee() {
+		return busFee;
+	}
 
+	public void setBusFee(Double busFee) {
+		this.busFee = busFee;
+	}
+
+	public String getValidUpTo() {
+		return validUpTo;
+	}
+
+	public void setValidUpTo(String validUpTo) {
+		this.validUpTo = validUpTo;
+	}	
 }

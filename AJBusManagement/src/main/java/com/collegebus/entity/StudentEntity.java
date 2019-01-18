@@ -45,7 +45,7 @@ public class StudentEntity {
 	
 	//For BusTripSelectionModel
 	
-	@OneToOne	
+	@OneToOne
 	@JoinColumn(name="serial_no")
 	private BusTripEntity busTripEntity;
 	

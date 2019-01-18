@@ -52,10 +52,20 @@ public class StudentServiceImpl implements StudentService {
 		
 		busTripEntity.setArea(busTrip.getArea());
 		busTripEntity.setTrip(busTrip.getTrip());
-		busTripEntity.setStudent(studentEntity);
+		busTripEntity.setStudent(studentEntity);								
 		
 		studentDao.saveBusTripSelection(busTripEntity);
 		
+		busTripEntity = getBusTripByStudentEmail(busTrip.getStudentMail());
+		studentEntity.setBusTripEntity(busTripEntity);
+		studentDao.update(studentEntity);
+		
+	}
+	
+	@Override	
+	public BusTripEntity getBusTripByStudentEmail(String emailId) {
+		
+		return studentDao.getBustTripByStudentEmail(emailId);
 	}
 
 	@Override
@@ -92,7 +102,7 @@ public class StudentServiceImpl implements StudentService {
 	public void update(UpdateModel updateModel) {
 		// TODO Auto-generated method stub
 		
-		StudentEntity studentEntity = studentDao.getStudentById(updateModel.getStudentMail());
+		StudentEntity studentEntity = studentDao.getStudentById(updateModel.getEmailId());
 		
 		studentEntity.setStudentName(updateModel.getName());
 		studentEntity.setDegree(updateModel.getDegree());

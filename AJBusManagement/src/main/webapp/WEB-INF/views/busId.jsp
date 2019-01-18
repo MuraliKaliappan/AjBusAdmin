@@ -49,7 +49,7 @@
 									<div class="col-md-7"> 
 										<div class="input-group">
 											<span class="input-group-addon"> <i class="glyphicon glyphicon-user"> </i> </span>
-											<input type="text" value="FULLNAME" class="form-control" id="name" disabled> 
+											<input type="text" value="${studentEntity.studentName}" class="form-control" id="name" disabled> 
 										</div>					
 									</div>
 								</div>	
@@ -60,7 +60,7 @@
 									<div class="col-md-7"> 
 										<div class="input-group">
 											<span class="input-group-addon"> <i class="glyphicon glyphicon-education"> </i> </span>
-											<input type="text" value="UG" class="form-control" id="degree" disabled> 
+											<input type="text"  value="${studentEntity.degree}" class="form-control" id="degree" disabled> 
 										</div>
 									</div>
 								</div>
@@ -70,47 +70,17 @@
 									<div class="col-md-7"> 
 										<div class="input-group">
 											<span class="input-group-addon"> <i class="glyphicon glyphicon-bookmark"> </i> </span>
-											<input type="text" value="I" class="form-control" id="year" disabled> 
+											<input type="text" value="${studentEntity.studyingYear}" class="form-control" id="year" disabled> 
 										</div>
 									</div>
-								</div>
-							
-								<div class="row form-group">
-									<label class="control-label col-md-3" for="blood"> Blood Group : </label> 
-									<div class="col-md-7"> 
-										<div class="input-group">
-											<span class="input-group-addon"> <i class="glyphicon glyphicon-tint"> </i> </span>
-											<input type="text" value="AB+" class="form-control" id="blood" disabled> 
-										</div>
-									</div>
-								</div>
-								
-								<div class="row form-group">
-									<label class="control-label col-md-3" for="dob"> Date Of Birth : </label> 
-									<div class="col-md-7"> 
-										<div class="input-group">
-											<span class="input-group-addon"> <i class="glyphicon glyphicon-calendar"> </i> </span>
-											<input type="text" value="12/04/1994" class="form-control" id="dob" disabled> 
-										</div>
-									</div>
-								</div>
-								
-								<div class="row form-group">
-									<label class="control-label col-md-3" for="mob"> Contact Number : </label> 
-									<div class="col-md-7"> 
-										<div class="input-group">
-											<span class="input-group-addon"> <i class="glyphicon glyphicon-earphone"> </i> </span>
-											<input type="number" value="9999999999" class="form-control" id="mob" disabled> 
-										</div>
-									</div>
-								</div>
+								</div>						
 								
 								<div class="row form-group">
 									<div class="col-md-3"> <label class="control-label" for="emergency"> Emergency Contact : </label> </div>
 									<div class="col-md-7"> 
 										<div class="input-group">
 											<span class="input-group-addon"> <i class="glyphicon glyphicon-phone"> </i> </span>
-											<input type="number" class="form-control" id="emergency" value="9999999999" disabled> 
+											<input type="number" class="form-control" id="emergency" value="${studentEntity.emergencyNumber}" disabled> 
 										
 										</div>
 									</div>
@@ -121,7 +91,7 @@
 									<div class="col-md-7"> 
 										<div class="input-group">
 											<span class="input-group-addon"> <i class="glyphicon glyphicon-map-marker"> </i> </span>
-											<input type="text" value="Rjplm" class="form-control" id="area" disabled> 
+											<input type="text" value="${studentEntity.busTripEntity.area}" class="form-control" id="area" disabled> 
 										</div>
 									</div>
 								</div>
@@ -131,7 +101,7 @@
 									<div class="col-md-7"> 
 										<div class="input-group">
 											<span class="input-group-addon"> <i class="glyphicon glyphicon-transfer"> </i> </span>
-											<input type="text" value="Trip I" class="form-control" id="trip" disabled> 
+											<input type="text"value="${studentEntity.busTripEntity.trip}" class="form-control" id="trip" disabled> 
 										</div>
 									</div>
 								</div>
@@ -161,7 +131,7 @@
 					
 		</div>
 		
-		<div class="container">
+		<!-- <div class="container">
 			<div class="row">
 				<div class="col-md-5">
 					<div class="alert alert-warning alert-dismissable"> 
@@ -171,7 +141,7 @@
 				</div>
 			</div>
 		</div>
-		
+		 -->
 	</body>
 	
 </html>

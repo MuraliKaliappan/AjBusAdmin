@@ -33,10 +33,10 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 
-		var result = "${result}";
-		
+		var result 		= "${result}";
+		var alertHeader	= "${alertHeader}";
 		if(result != "") {
-			alertify.alert("Error..!", result, function(){
+			alertify.alert(alertHeader, result, function(){
 				window.location.href = '/AJBusManagement/';
 			});		
 		}

@@ -1,5 +1,6 @@
 package com.collegebus.service;
 
+import com.collegebus.entity.BusTripEntity;
 import com.collegebus.entity.StudentEntity;
 import com.collegebus.model.AdditionalDetailsModel;
 import com.collegebus.model.BusTripSelectionModel;
@@ -11,7 +12,7 @@ public interface StudentService {
 
 	public void saveRegistration(RegistrationModel registration);
 	
-	public void saveBusTrip(BusTripSelectionModel busTrip);
+	
 	
 	public void saveAdditionalDetails(AdditionalDetailsModel additionalDetailsModel);
 	
@@ -20,5 +21,11 @@ public interface StudentService {
 	public void update(UpdateModel updateModel);
 	
 	public StudentEntity getStudentByEmail(String emailId);
+	
+	//bus trip service
+	
+	public void saveBusTrip(BusTripSelectionModel busTrip);
+	
+	public BusTripEntity getBusTripByStudentEmail(String emailId);
 	
 }

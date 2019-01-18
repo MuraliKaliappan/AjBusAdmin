@@ -39,7 +39,7 @@
 								<div class="col-md-8"> 
 									<div class="input-group">
 										<span class="input-group-addon"> <i class="glyphicon glyphicon-calendar"> </i> </span>
-										<input type="date" placeholder="Date of birth" class="form-control" name="dateOfBirth" required> 
+										<input type="date" placeholder="Date of birth" class="form-control" name="dateOfBirth" value = "${studentEntity.dateOfBirth}"   ${empty studentEntity.dateOfBirth ? '' : 'disabled'} required > 
 										
 									</div>
 								</div>
@@ -50,7 +50,7 @@
 								<div class="col-md-8"> 
 									<div class="input-group">
 										<span class="input-group-addon"> <i class="glyphicon glyphicon-earphone"> </i> </span>
-										<input type="number" placeholder="Mobile Number" class="form-control" name="mobileNumber" max="9999999999" required> 
+										<input type="number" placeholder="Mobile Number" class="form-control" name="mobileNumber" max="9999999999" value="${studentEntity.mobileNumber}"  ${empty studentEntity.mobileNumber ? '' : 'disabled'} required> 
 										
 									</div>
 								</div>
@@ -61,7 +61,7 @@
 								<div class="col-md-8"> 
 									<div class="input-group">
 										<span class="input-group-addon"> <i class="glyphicon glyphicon-phone"> </i> </span>
-										<input type="number" placeholder="Emergency Number" class="form-control" name="emergencyNumber" max="9999999999" required> 
+										<input type="number" placeholder="Emergency Number" class="form-control" name="emergencyNumber" max="9999999999" value="${studentEntity.emergencyNumber}" ${empty studentEntity.emergencyNumber ? '' : 'disabled'} required> 
 										
 									</div>
 								</div>
@@ -72,16 +72,16 @@
 								<div class="col-md-8"> 
 									<div class="input-group">
 										<span class="input-group-addon"> <i class="glyphicon glyphicon-tint"> </i> </span>
-										<select class="form-control" name="bloodGroup"> 
+										<select class="form-control" name="bloodGroup" ${empty studentEntity.bloodGroup ? '' : 'disabled' }>  
 											<option disabled> Select Blood Group </option>
-											<option> A+ </option>
-											<option> B+ </option>
-											<option> AB+ </option>
-											<option> O+ </option>
-											<option> A- </option>
-											<option> B- </option>
-											<option> AB- </option>
-											<option> O- </option>
+											<option ${studentEntity.bloodGroup == 'A+' ? 'selected' : ''}> A+ </option>
+											<option ${studentEntity.bloodGroup == 'B+' ? 'selected' : ''}> B+ </option>
+											<option ${studentEntity.bloodGroup == 'AB+' ? 'selected' : ''}> AB+ </option>
+											<option ${studentEntity.bloodGroup == 'O+' ? 'selected' : ''}> O+ </option>
+											<option ${studentEntity.bloodGroup == 'A-' ? 'selected' : ''}> A- </option>
+											<option ${studentEntity.bloodGroup == 'B-' ? 'selected' : ''}> B- </option>
+											<option ${studentEntity.bloodGroup == 'AB-' ? 'selected' : ''}> AB- </option>
+											<option ${studentEntity.bloodGroup == '0-' ? 'selected' : ''}> O- </option>
 										</select>
 										
 									</div>
@@ -94,7 +94,7 @@
 						
 						<div class="row form-group">
 							<div class="col-md-offset-9">
-								<button type="submit" class="btn btn-success"> Save </button> 
+								<button type="submit" class="btn btn-success"  ${empty studentEntity ? '' : 'disabled'}> Save </button> 
 								<button type="button" class="btn btn-danger"> Cancel </button> 
 							</div>
 						</div>
