@@ -74,7 +74,7 @@ public class StudentServiceImpl implements StudentService {
 		
 		StudentEntity studentEntity = getStudentByEmail(additionalDetailsModel.getStudentMail());
 		
-		studentEntity.setDateOfBirth(additionalDetailsModel.getDateOfBirth());
+		//studentEntity.setDateOfBirth(additionalDetailsModel.getDateOfBirth());
 		studentEntity.setBloodGroup(additionalDetailsModel.getBloodGroup());
 		studentEntity.setEmergencyNumber(additionalDetailsModel.getEmergencyNumber());
 		studentEntity.setMobileNumber(additionalDetailsModel.getMobileNumber());
@@ -90,7 +90,7 @@ public class StudentServiceImpl implements StudentService {
 	public void changePassword(PasswordChangeModel passwordChangeModel){
 		// TODO Auto-generated method stub
 		
-		StudentEntity studentEntity = studentDao.getStudentById(passwordChangeModel.getStudentMail());
+		StudentEntity studentEntity = studentDao.getStudentById(passwordChangeModel.getUserName());
 		
 		studentEntity.setPassword(passwordChangeModel.getNewPwd());
 		
@@ -108,7 +108,7 @@ public class StudentServiceImpl implements StudentService {
 		studentEntity.setDegree(updateModel.getDegree());
 		studentEntity.setStudyingYear(updateModel.getYearOfStudying());
 		
-		studentEntity.setDateOfBirth(updateModel.getDob());
+		//studentEntity.setDateOfBirth(updateModel.getDob());
 		studentEntity.setBloodGroup(updateModel.getBloodGroup());
 		studentEntity.setEmergencyNumber(updateModel.getEmergency());
 		studentEntity.setMobileNumber(updateModel.getMob());

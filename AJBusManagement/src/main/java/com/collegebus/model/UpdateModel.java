@@ -5,7 +5,7 @@ public class UpdateModel {
 	
 	private String name;
 	
-	private String dob;
+	//private String dob;
 	
 	private String degree;
 	
@@ -29,13 +29,13 @@ public class UpdateModel {
 		this.name = name;
 	}
 
-	public String getDob() {
+	/*public String getDob() {
 		return dob;
 	}
 
 	public void setDob(String dob) {
 		this.dob = dob;
-	}
+	}*/
 
 	public String getDegree() {
 		return degree;

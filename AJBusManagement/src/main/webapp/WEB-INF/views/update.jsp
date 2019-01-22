@@ -13,6 +13,13 @@
 			Update Form
 		</title>
 		
+		<script type="text/javascript">
+			function cancel()
+			{
+				window.location.href = '/AJBusManagement/student/login';	
+			}
+		</script>
+		
 	</head>
 	
 	
@@ -57,7 +64,7 @@
 								</div>							 
 							</div>	
 												
-							<div class="row form-group">
+							<%-- <div class="row form-group">
 								<div class="col-md-3"> <label class="control-label" for="dob"> Date Of Birth : </label> </div>
 								<div class="col-md-8"> 
 									<div class="input-group">
@@ -66,7 +73,7 @@
 										
 									</div>
 								</div>
-							</div>
+							</div> --%>
 						
 							<div class="row form-group">
 								<div class="col-md-3"> <label class="control-label" for="degree"> Degree : </label> </div>
@@ -150,7 +157,7 @@
 						<div class="row form-group">
 							<div class="col-md-offset-9">
 								<button type="submit" class="btn btn-success"> Update </button> 
-								<button type="button" class="btn btn-danger"> Cancel </button> 
+								<button type="button" class="btn btn-danger" onClick="cancel()"> Cancel </button> 
 							</div>
 						</div>
 						

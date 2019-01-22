@@ -31,8 +31,8 @@ public class StudentEntity {
 	
 	//For AdditionalDetailsModel
 	
-	@Column(name="date_of_birth")
-	private String dateOfBirth;
+	/*@Column(name="date_of_birth")
+	private String dateOfBirth;*/
 	
 	@Column(name="mobile_number")
 	private String mobileNumber;
@@ -81,12 +81,12 @@ public class StudentEntity {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getDateOfBirth() {
+	/*public String getDateOfBirth() {
 		return dateOfBirth;
 	}
 	public void setDateOfBirth(String dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
-	}
+	}*/
 	public String getMobileNumber() {
 		return mobileNumber;
 	}

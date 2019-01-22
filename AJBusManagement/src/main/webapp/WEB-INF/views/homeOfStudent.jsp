@@ -46,12 +46,18 @@
 				
 				var studentMail = "${studentMail}";
 				if(studentMail != "") {
-					sessionStorage.setItem("user",studentMail);
+					sessionStorage.setItem("user",studentMail)					
 				} else {
 					if(sessionStorage.getItem("user") == null){						
 						window.location.href = '/AJBusManagement/'
-					}					
+					} 
+					if(sessionStorage.getItem("user") == "admin"){						
+						window.location.href = '/AJBusManagement/'
+					} 
 				}
+				
+				var userName = sessionStorage.getItem("user");
+				$("h2").text(userName);
 				
 				
 				
@@ -101,7 +107,7 @@
 			
 				<li class="active"> <a data-toggle="tab" href="#profile"> <i class="glyphicon glyphicon-user"> </i> </a> </li>
 				
-				<li> <a data-toggle="tab" href="#additionalDetails"> Additional Details </a> </li>
+				<!-- <li> <a data-toggle="tab" href="#additionalDetails"> Additional Details </a> </li> -->
 				
 				<li> <a data-toggle="tab" href="#busTripSelection"> Bus Trip Selection </a> </li>
 				
@@ -113,9 +119,9 @@
 				
 				<li> <a data-toggle="tab" href="#busId" > Bus ID </a> </li>
 				
-				<li> <a data-toggle="tab" href="#notification"> <i class="glyphicon glyphicon-bell"> </i> </a> </li>
+			<!-- 	<li> <a data-toggle="tab" href="#notification"> <i class="glyphicon glyphicon-bell"> </i> </a> </li> -->
 				
-				<li class="navbar-right" title="logout"> <a data-toggle="tab" href="#logout"> <i class="glyphicon glyphicon-off"> </i> </a> </li>
+				<li class="navbar-right" title="logout"> <a data-toggle="tab" href="#logout"><i class="glyphicon glyphicon-off"> </i> </a> </li>
 
 			</ul>
 			
@@ -125,7 +131,10 @@
 
 			<div class="tab-content">
 			
-				<div id="profile" class="tab-pane fade in active"> Hi, Welcome  ${studentUser} </div>
+				<div id="profile" class="tab-pane fade in active"> 	<br> <br> <br>
+				 <h1> Hello </h1> <h2> <script type="text/javascript"> document.write(userName); </script>  </h2>  <br>
+					 <h3> 				<center>	>----			Welcome to your Dashboard			----> </center></h3> 	
+				</div>
 				
 				<div id="additionalDetails" class="tab-pane fade ">   </div>
 				

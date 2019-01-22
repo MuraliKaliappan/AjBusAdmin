@@ -8,9 +8,18 @@
 		
 		<link rel="stylesheet" href="resources\bootstrap-3.3.7-dist\css\bootstrap.css">
 		
+		<!-- <script src="resources\jquery-3.3.1\jquery.js"></script> -->
+		
 		<title>
 			Login Form for Admin
 		</title>
+		
+		<script type="text/javascript">
+			function cancel()
+			{
+				window.location.href = '/AJBusManagement/';	
+			}
+		</script>
 		
 	</head>
 	
@@ -63,7 +72,7 @@
 										
 										<div class="row">
 											<div class="col-md-offset-4"> <button type="submit" class="btn btn-success">Login</button> 
-											<button type="button" class="btn btn-danger">Cancel </button> </div>
+											<button type="button" class="btn btn-danger" onClick="cancel()">Cancel </button> </div>
 										</div>
 									
 									</div>

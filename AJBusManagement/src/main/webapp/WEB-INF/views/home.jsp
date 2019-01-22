@@ -42,7 +42,10 @@
 		}
 		
 		if(sessionStorage.getItem("user") != null) {
-			window.location.href = '/AJBusManagement/student/login'
+			if(sessionStorage.getItem("user") == "admin")
+				window.location.href = '/AJBusManagement/admin/login';
+			else
+				window.location.href = '/AJBusManagement/student/login';
 		}
 		
 		
@@ -75,7 +78,7 @@
 	<div class="page-header">
 		<center>
 			<h3>
-				<strong> Online College Bus Management </strong>
+				<strong>AJ College Bus Management </strong>
 			</h3>
 		</center>
 	</div>
@@ -101,6 +104,12 @@
 
 
 		<div class="tab-content">
+		
+			<div class="tab-pane fade in active">
+				
+				<img class="col-md-offset-4" alt="AJ College logo" src="resources\images\AJ logo.png"  align="middle"  >
+				
+			</div>
 
 			<div id="registration" class="tab-pane fade">
 				<%-- <jsp:include page="/WEB-INF/views/registration.jsp"></jsp:include> --%>

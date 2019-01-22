@@ -15,6 +15,12 @@
 		
 	</head>
 	
+		<script type="text/javascript">
+			function cancel()
+			{
+				window.location.href = '/AJBusManagement/';	
+			}
+		</script>
 	
 	<body>
 	
@@ -65,7 +71,7 @@
 										
 										<div class="row">
 											<div class="col-md-offset-4"> <button type="submit" class="btn btn-success">Login</button> 
-											<button type="button" class="btn btn-danger">Cancel </button> </div>
+											<button type="button" class="btn btn-danger" onClick="cancel()">Cancel </button> </div>
 										</div>
 									
 									</div>

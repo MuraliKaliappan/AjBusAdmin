@@ -75,13 +75,20 @@
 								
 								<div class="row form-group">
 									<label class="control-label col-md-3" for="trip"> Amount : </label> 
-									<div class="col-md-7"> <input type="text" value="" class="form-control" id="trip" disabled> </div>
-								</div>																							
+									<div class="col-md-7"> <input type="text" value="${studentEntity.busTripEntity.routeCostEntity.amount}" class="form-control" id="trip" disabled> </div>
+								</div>	 																						
+							
+						
+								<div class="row form-group">
+									<label class="control-label col-md-3" for="status"> Status : </label> 
+									<div class="col-md-7"> <input type="text" value="${ studentEntity.busTripEntity.finalStatus ? 'Accepted' :'Request Pending' }" class="form-control" id="status" disabled> </div>
+								</div>
+							
 							</fieldset>
 						</div>
 						
 						<div class="row form-group ">
-							<span class="col-md-offset-9 btn glyphicon glyphicon-print btn-lg btn-info" data-toggle="tooltip" data-placement="auto" title="Print"></span> 
+							<span class="col-md-offset-9 btn glyphicon glyphicon-print btn-lg btn-info" data-toggle="tooltip" data-placement="auto" title="Print" ${ studentEntity.busTripEntity.finalStatus ? '' :'disabled' }></span> 
 						</div>
 						
 					</form>

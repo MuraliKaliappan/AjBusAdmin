@@ -35,14 +35,14 @@
 						
 							<fieldset>
 							
-								<div class="row form-group "> 
+								<!-- <div class="row form-group "> 
 									<div class="col-md-offset-5 col-md-5"> 
 										<div class="input-group"> 
 												<div class="input-group-addon"><label class="control-label" for="photo"> Photo : </label></div>
 												<input type="text" value="" class="form-control" id="photo" >
 										</div>
 									</div>
-								</div>
+								</div> -->
 																
 								<div class="row form-group">
 									<label class="control-label col-md-3" for="name"> Name : </label> 
@@ -81,7 +81,16 @@
 										<div class="input-group">
 											<span class="input-group-addon"> <i class="glyphicon glyphicon-phone"> </i> </span>
 											<input type="number" class="form-control" id="emergency" value="${studentEntity.emergencyNumber}" disabled> 
-										
+										</div>
+									</div>
+								</div>	
+								
+								<div class="row form-group">
+									<div class="col-md-3"> <label class="control-label" for="bloodGroup"> Blood Group : </label> </div>
+									<div class="col-md-7"> 
+										<div class="input-group">
+											<span class="input-group-addon"> <i class="glyphicon glyphicon-tint"> </i> </span>
+											<input type="text" class="form-control" id="bloodGroup" value="${studentEntity.bloodGroup}" disabled> 
 										</div>
 									</div>
 								</div>	
@@ -106,21 +115,22 @@
 									</div>
 								</div>
 								
-								<div class="row form-group">
-									<label class="control-label col-md-3" for="validMonth"> ID validation Month : </label> 
+							<%-- 	<div class="row form-group">
+								<label class="control-label col-md-3" for="valid_up_to"> Valid-up-to : </label> 
 									<div class="col-md-7"> 
 										<div class="input-group">
 											<span class="input-group-addon"> <i class="glyphicon glyphicon-time"> </i> </span>
-											<input type="text" value="NOVEMBER, 2018" class="form-control" id="validMonth" disabled> 
+											<input type="text" value="${ studentEntity.busTripEntity.validUpTo}" class="form-control" id="valid_up_to" disabled> 
 										</div>
 									</div>
 								</div>
+								 --%>
 								
 							</fieldset>
 						</div>
 						
 						<div class="row form-group ">
-							<span class="col-md-offset-9 btn glyphicon glyphicon-print btn-lg btn-info" data-toggle="tooltip" data-placement="auto" title="Print"></span> 
+							<span class="col-md-offset-9 btn glyphicon glyphicon-print btn-lg btn-info" data-toggle="tooltip" data-placement="auto" title="Print" ${ studentEntity.busTripEntity.finalStatus ? '' :'disabled' }></span> 
 						</div>
 						
 					</form>

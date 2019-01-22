@@ -64,10 +64,10 @@ public class StudentController {
 	
 	
 	@RequestMapping(value = "/showPasswordChange", method = RequestMethod.GET)
-	public ModelAndView showPasswordChange(@RequestParam("userName") String studentMail) {
-		logger.info("Welcome to the additional details page " +  studentMail);
+	public ModelAndView showPasswordChange(@RequestParam("userName") String userName) {
+		logger.info("Welcome to the additional details page " +  userName);
 		ModelAndView model = new ModelAndView("passwordChange");
-		model.addObject("studentMail",  studentMail);
+		model.addObject("userName",  userName);
 		return model;
 	}
 	
@@ -108,17 +108,18 @@ public class StudentController {
 			if (student.getStudentPassword().equals(studentEntity.getPassword())) {
 				logger.info("Welcome student ");
 				model = new ModelAndView("homeOfStudent");
-
 				model.addObject("studentMail", studentEntity.getEmailId());
 			} else {
 				logger.info("Invalid admin ");
 				model = new ModelAndView("home");
 				model.addObject("result", "Invalid Username (Email Id) or Password");
+				model.addObject("alertHeader", "Error");
 			}
 		} else {
 
 			model = new ModelAndView("home");
 			model.addObject("result", "Invalid Username (Email Id) or Password");
+			model.addObject("alertHeader", "Error");
 		}
 
 		return model;
@@ -155,7 +156,7 @@ public class StudentController {
 		
 		ModelAndView model = new ModelAndView("homeOfStudent");
 		
-		StudentEntity studentEntity = studentService.getStudentByEmail(passwordChangeModel.getStudentMail());
+		StudentEntity studentEntity = studentService.getStudentByEmail(passwordChangeModel.getUserName());
 		
 		if(studentEntity.getPassword().equals(passwordChangeModel.getOld())){
 				studentService.changePassword(passwordChangeModel);

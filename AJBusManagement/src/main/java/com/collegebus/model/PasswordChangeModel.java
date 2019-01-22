@@ -2,7 +2,7 @@ package com.collegebus.model;
 
 public class PasswordChangeModel {
 
-	private String studentMail;
+	private String userName;
 	
 	private String old;
 	
@@ -10,12 +10,14 @@ public class PasswordChangeModel {
 	
 	private String confirm;
 	
-	public String getStudentMail() {
-		return studentMail;
+	
+
+	public String getUserName() {
+		return userName;
 	}
 
-	public void setStudentMail(String studentMail) {
-		this.studentMail = studentMail;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	public String getOld() {

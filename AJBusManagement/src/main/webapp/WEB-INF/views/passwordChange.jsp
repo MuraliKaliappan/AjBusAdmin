@@ -18,8 +18,8 @@
 		
 		function checkPwd(){
 			
-			var pwd 		= $("input[name='password']").val();
-			var confirmPwd	= $("input[name='confirmPwd']").val();
+			var pwd 		= $("input[name='newPwd']").val();
+			var confirmPwd	= $("input[name='confirm']").val();
 			if(pwd == confirmPwd) {
 				return true;
 			} else {
@@ -36,6 +36,13 @@
 			}
 		})
 		
+		
+		
+			function cancel()
+			{
+				window.location.href = '/AJBusManagement/';	
+			}
+		
 		</script>
 		
 	</head>
@@ -45,7 +52,7 @@
 	
 		<div class="container-fluid">
 			
-			<br> <br> <br> <br> <br> <br> <br>
+			<br> <br> <br> <br> 
 			<div class="row">
 			
 				<div class="col-md-offset-3 col-md-5"> 
@@ -61,7 +68,7 @@
 								<div class="panel-body">
 								
 									<div class="row form-group">
-										<div class="col-md-4"> <input type="hidden" class="form-control" name="studentMail" value="${studentMail}" /> </div>
+										<div class="col-md-4"> <input type="hidden" class="form-control" name="userName" value="${userName}" /> </div>
 									</div>
 								
 									<div class="row form-group">
@@ -104,7 +111,7 @@
 							<div class="row form-group">
 								<div class="col-md-offset-8">
 									<button type="submit" class="btn btn-success"> Change </button> 
-									<button type="button" class="btn btn-danger"> Cancel </button> 
+									<button type="button" class="btn btn-danger" onClick="cancel()"> Cancel </button> 
 								</div>
 							</div>
 							

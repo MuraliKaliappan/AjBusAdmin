@@ -35,6 +35,12 @@
 						event.preventDefault();
 					}
 				})
+				
+				function cancel()
+				{
+					window.location.href = '/AJBusManagement/';	
+				}
+		
 			
 		</script>
 	</head>
@@ -140,7 +146,7 @@
 						<div class="row form-group">
 							<div class="col-md-offset-9">
 								<button type="submit" class="btn btn-success"> Register </button> 
-								<button type="button" class="btn btn-danger"> Cancel </button> 
+								<button type="button" class="btn btn-danger" onClick="cancel()"> Cancel </button> 
 							</div>
 						</div>
 						
