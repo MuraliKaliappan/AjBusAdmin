@@ -94,7 +94,32 @@ public class AdminController {
 		}
 		return model;
 	}
+	
+	
+	@RequestMapping(value = "/showPaymentDetails", method = RequestMethod.GET)
+	public ModelAndView showPaymentDetails() {
+				
+			List<BusTripEntity> busTripEntities = adminService.getFinalStatusOfBusTrip();
+			ModelAndView model = new ModelAndView("paymentDetails");
+			model.addObject("busTrips", busTripEntities);
+			return model;
+	}
 
+	
+	@RequestMapping(value="savePaymentDetails",method = RequestMethod.GET)
+	public ModelAndView updatePaymentDetails(@RequestParam("busId") Integer busSerialNo, @RequestParam("status") Boolean status ){
+		
+		adminService.updateFeeStatus(busSerialNo, status);
+		List<BusTripEntity> busTripEntities = adminService.getFinalStatusOfBusTrip();
+		ModelAndView model = new ModelAndView("homeOfAdmin");
+		model.addObject("busTrips", busTripEntities);
+		model.addObject("result", "Student's payment details was successfully stored");
+		model.addObject("alertHeader", "Message");
+		return model;
+		
+	}
+	
+	
 	@RequestMapping(value="saveTripDetails",method = RequestMethod.GET)
 	public ModelAndView getTripDetails(@RequestParam("busId") Integer busSerialNo, @RequestParam("status") Boolean status ){
 		
@@ -107,6 +132,8 @@ public class AdminController {
 		return model;
 		
 	}
+	
+	
 	
 	@RequestMapping(value = "/showRouteCost", method = RequestMethod.GET)
 	public ModelAndView showRouteCost() {
@@ -140,7 +167,7 @@ public class AdminController {
 				model.addObject("alertHeader", "success");
 		} else {
 			model.addObject("result", "Your Old Password was incorrect");
-			model.addObject("alertHeader", "Error");
+			model.addObject("alertHeader", "Error!");
 		}
 		return model;
 

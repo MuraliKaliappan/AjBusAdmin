@@ -14,6 +14,8 @@ public interface AdminDao {
 
 	public List<BusTripEntity> getPendingBusTrip();
 	
+	public List<BusTripEntity> getFinalStatusOfBusTrip();
+	
 	public BusTripEntity getBusTripBuSerialNo(Integer serialNo);
 	
 	public void updateBusStatus(BusTripEntity busTripEntity);

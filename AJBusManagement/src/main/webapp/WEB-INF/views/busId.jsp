@@ -10,18 +10,50 @@
 		<link rel="stylesheet" href="resources\bootstrap-3.3.7-dist\css\bootstrap.css">
 		<script src="resources\jquery-3.3.1\jquery.js"></script>
 		<script src="resources\bootstrap-3.3.7-dist\js\bootstrap.min.js"></script>
-		
+		<script src="resources\jspdf\jspdf.debug.js"></script>
 		
 		<title>
 			Bus ID
 		</title>
+		
+		
+		<script>
+			
+			$(document).ready(function(){
+
+				$("#btnPrint").click(function(){
+
+					console.log("hai");
+
+					var printContents = $("#printContainer").html();
+				
+					var printWindow = window.open('','','height=400,width=800');
+
+					printWindow.document.write('<html><head><title> Bus ID </title>');
+
+					printWindow.document.write('</head><body>');				
+
+					printWindow.document.write(printContents);
+
+					printWindow.document.write('</body></html>');
+
+					printWindow.document.close();
+
+					printWindow.print();
+				});
+
+			});
+			
+		</script>
+		
+		
 		
 	</head>
 	
 	
 	<body>
 		
-		<div class="container-fluid">
+		<div class="container-fluid" id="printContainer">
 		
 		<h3> <strong> Bus ID </strong> </h3>
 			
@@ -130,7 +162,7 @@
 						</div>
 						
 						<div class="row form-group ">
-							<span class="col-md-offset-9 btn glyphicon glyphicon-print btn-lg btn-info" data-toggle="tooltip" data-placement="auto" title="Print" ${ studentEntity.busTripEntity.finalStatus ? '' :'disabled' }></span> 
+							<span class="col-md-offset-9 btn glyphicon glyphicon-print btn-lg btn-info" data-toggle="tooltip" data-placement="auto" id="btnPrint" title="Print" ${ studentEntity.busTripEntity.feeStatus ? '' :'disabled' }></span> 
 						</div>
 						
 					</form>

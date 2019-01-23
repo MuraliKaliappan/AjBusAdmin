@@ -63,6 +63,12 @@
 				$('#routeCost').load('showRouteCost');
 			})
 			
+			
+			$(".nav a[href='#paymentDetails']").click(function() {
+				$('#paymentDetails').load('showPaymentDetails');
+			})
+			
+			
 			$(".nav a[href='#passwordChange']").click(function() {
 				$('#passwordChange').load('showPasswordChange?userName='+sessionStorage.getItem("user"));
 			})
@@ -98,12 +104,12 @@
 			
 			
 
-			<!-- <li><a data-toggle="tab" href="#adminMenu3"> Admin menu 3 </a>
+			<li><a data-toggle="tab" href=#paymentDetails> Bus Fee Management </a>
 			</li>
 
-			<li><a data-toggle="tab" href="#adminMenu4"> Admin menu 4 </a>
-			</li>
- -->
+			<!-- <li><a data-toggle="tab" href="#adminMenu4"> Admin menu 4 </a>
+			</li> -->
+ 
 			<li><a data-toggle="tab" href="#passwordChange"> Change	Password </a></li>
 
 			<li class="navbar-right" title="logout"><a data-toggle="tab" href="#logout"> <i class="glyphicon glyphicon-off"> </i>
@@ -135,13 +141,13 @@
 			</div>
 			
 
-			<%-- <div id="adminMenu3" class="tab-pane fade">
-				<jsp:include page="/WEB-INF/views/update.jsp"></jsp:include> 
+			 <div id="paymentDetails" class="tab-pane fade">
+				<%-- <jsp:include page="/WEB-INF/views/update.jsp"></jsp:include>  --%>
 			</div>
 
-			<div id="adminMenu4" class="tab-pane fade">
+			<%-- <div id="adminMenu4" class="tab-pane fade">
 				<jsp:include page="/WEB-INF/views/challan.jsp"></jsp:include> 
-			</div> --%>
+			</div>  --%>
 
 			<div id="passwordChange" class="tab-pane fade">
 				<%-- <jsp:include page="/WEB-INF/views/passwordChange.jsp"></jsp:include> --%>

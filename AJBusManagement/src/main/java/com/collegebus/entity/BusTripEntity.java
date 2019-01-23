@@ -40,8 +40,8 @@ public class BusTripEntity {
 	@Column(name="final_status")
 	private Boolean finalStatus = false;
 	
-	/*@Column(name="route_cost")
-	private Double routeCost;*/
+	@Column(name="fee_status")
+	private Boolean feeStatus = false;
 	
 	@OneToOne
 	@JoinColumn(name="email_id")
@@ -122,6 +122,14 @@ public class BusTripEntity {
 	public void setRouteCost(Double routeCost) {
 		this.routeCost = routeCost;
 	}*/
+
+	public Boolean getFeeStatus() {
+		return feeStatus;
+	}
+
+	public void setFeeStatus(Boolean feeStatus) {
+		this.feeStatus = feeStatus;
+	}
 
 	public RouteCostEntity getRouteCostEntity() {
 		return routeCostEntity;

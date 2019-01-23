@@ -6,17 +6,18 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Trip Management</title>
+<title>Payment Details</title>
+
 
 			<script type="text/javascript">
-				function acceptBusTrip(busTripSerialNo) {
+				function confirmPaid(busTripSerialNo) {
 					console.log(busTripSerialNo +" "+true);
-					window.location.href = 'saveTripDetails?busId='+busTripSerialNo+"&status="+true
+					window.location.href = 'savePaymentDetails?busId='+busTripSerialNo+"&status="+true
 				}
 
-				function declineBusTrip(busTripSerialNo) {
+				function unconfirmPaid(busTripSerialNo) {
 					console.log(busTripSerialNo +" "+false);
-					window.location.href = 'saveTripDetails?busId='+busTripSerialNo+"&status="+false
+					window.location.href = 'savePaymentDetails?busId='+busTripSerialNo+"&status="+false
 				}
 
 
@@ -30,18 +31,16 @@
 						<strong> Student's Trip Selection Summary</strong>
 					</h3> -->
 				<br> <br> <br>
-
+				
 				<div class="row">
 
 					<div class="col-md-offset-1 col-md-9">
 
-						<form class="form-default" role="form" action="saveTripDetails" method="post">
+						<form class="form-default" role="form" action="savePaymentDetails" method="post">
 							<table class="table table-hover">
 								<thead>
 									<tr>
-										<th>Student Name</th>
-										<th>Degree</th>
-										<th>Studying Year</th>
+										<th>Student ID</th>
 										<th>Route</th>
 										<th>Trip</th>
 										<th>Action</th>
@@ -50,20 +49,18 @@
 
 								<tbody>
 									<c:choose>
-										<c:when test="${empty busTrips}"><tr> <td colspan="6"> No bus trip selection found</td></tr></c:when>
+										<c:when test="${empty busTrips}"><tr> <td colspan="6"> No payment details found</td></tr></c:when>
 										<c:otherwise>										
 											<c:forEach items="${busTrips}" var="busTrip">
 												<tr>
-													<td>${busTrip.student.studentName}</td>
-													<td>${busTrip.student.degree}</td>
-													<td>${busTrip.student.studyingYear}</td>
+													<td>${busTrip.student.emailId}</td>
 													<td>${busTrip.area}</td>
 													<td>${busTrip.trip}</td>
 													<td><input class="form-contrl btn btn-success"
-														type="button" value="Accept"
-														onclick="acceptBusTrip(${busTrip.serialNo})"> <input
+														type="button" value="Paid"
+														onclick="confirmPaid(${busTrip.serialNo})"> <input
 														type="button" class="form-contrl btn btn-danger"
-														onclick="declineBusTrip(${busTrip.serialNo})" value="Reject"></td>
+														onclick="unconfirmPaid(${busTrip.serialNo})" value="Unpaid"></td>
 												</tr>
 		
 											</c:forEach>
@@ -81,6 +78,7 @@
 				</div>
 
 </div>
+
 
 </body>
 </html>

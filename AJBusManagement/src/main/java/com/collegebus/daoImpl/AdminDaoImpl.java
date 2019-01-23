@@ -81,4 +81,13 @@ public class AdminDaoImpl implements AdminDao {
 		sessionFactory.getCurrentSession().update(adminEntity);;
 	}
 
+	@Override
+	public List<BusTripEntity> getFinalStatusOfBusTrip() {
+		// TODO Auto-generated method stub
+		
+		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(BusTripEntity.class);
+		List<BusTripEntity> busTripEntities = (List<BusTripEntity>) criteria.add(Restrictions.eq("finalStatus",true )).list();
+		return busTripEntities;
+	}
+
 }

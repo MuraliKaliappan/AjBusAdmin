@@ -164,6 +164,7 @@ public class StudentController {
 				model.addObject("alertHeader", "success");
 		} else {
 			model.addObject("result", "Your Old Password was incorrect");
+			model.addObject("alertHeader", "Error!");
 		}
 		return model;
 
@@ -179,7 +180,8 @@ public class StudentController {
 		
 		ModelAndView model = new ModelAndView("homeOfStudent");
 		model.addObject("studentEntity", studentEntity);
-		
+		model.addObject("result", "Your Details was successfully updated");
+		model.addObject("alertHeader", "success");
 		return model;
 
 	}

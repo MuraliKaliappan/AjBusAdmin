@@ -102,4 +102,26 @@ public class AdminServiceImpl implements AdminService {
 		routeCostEntity.setAmount(adminRouteCostModel.getAmount());
 		adminDao.saveRouteCost(routeCostEntity);
 	}
+
+	@Override
+	public List<BusTripEntity> getFinalStatusOfBusTrip() {
+		// TODO Auto-generated method stub
+		
+		return adminDao.getFinalStatusOfBusTrip();
+
+	}
+
+	@Override
+	public void updateFeeStatus(Integer busSerialNo, Boolean status) {
+		// TODO Auto-generated method stub
+		
+		BusTripEntity busTripEntity = getBusTripBySerialNo(busSerialNo);
+		
+		busTripEntity.setFinalStatus(false);
+		busTripEntity.setFeeStatus(status);
+					
+		adminDao.updateBusStatus(busTripEntity);
+	
+		
+	}
 }
