@@ -2,6 +2,8 @@ package com.collegebus.serviceImpl;
 
 import java.util.List;
 
+import org.hibernate.Query;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,10 +11,8 @@ import com.collegebus.dao.AdminDao;
 import com.collegebus.entity.AdminEntity;
 import com.collegebus.entity.BusTripEntity;
 import com.collegebus.entity.RouteCostEntity;
-import com.collegebus.entity.StudentEntity;
 import com.collegebus.model.AdminRouteCostModel;
 import com.collegebus.model.PasswordChangeModel;
-import com.collegebus.model.RouteCost;
 import com.collegebus.service.AdminService;
 
 @Service
@@ -123,5 +123,13 @@ public class AdminServiceImpl implements AdminService {
 		adminDao.updateBusStatus(busTripEntity);
 	
 		
+	}
+
+	
+
+	@Override
+	public List checkAvailabilityOfBusSeats(String area, String trip) {
+		// TODO Auto-generated method stub
+		return adminDao.checkAvailabilityOfBusSeats(area,trip);
 	}
 }

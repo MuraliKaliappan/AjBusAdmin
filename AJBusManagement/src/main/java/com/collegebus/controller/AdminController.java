@@ -1,13 +1,13 @@
 package com.collegebus.controller;
 
-import java.util.ArrayList;
 import java.util.List;
+
+
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,11 +16,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.collegebus.entity.AdminEntity;
 import com.collegebus.entity.BusTripEntity;
-import com.collegebus.entity.StudentEntity;
 import com.collegebus.model.AdminLoginModel;
 import com.collegebus.model.AdminRouteCostModel;
 import com.collegebus.model.PasswordChangeModel;
-import com.collegebus.model.RouteCost;
 import com.collegebus.service.AdminService;
 
 
@@ -122,13 +120,30 @@ public class AdminController {
 	
 	@RequestMapping(value="saveTripDetails",method = RequestMethod.GET)
 	public ModelAndView getTripDetails(@RequestParam("busId") Integer busSerialNo, @RequestParam("status") Boolean status ){
-		
-		adminService.updateBusStatus(busSerialNo, status);
-		List<BusTripEntity> busTripEntities = adminService.getPendingBusTrip();
 		ModelAndView model = new ModelAndView("homeOfAdmin");
+		
+		BusTripEntity busTripEntity = adminService.getBusTripBySerialNo(busSerialNo);
+		
+		List list= adminService.checkAvailabilityOfBusSeats(busTripEntity.getArea(),busTripEntity.getTrip());
+	
+		Integer count = list.size();
+		System.out.print(count);
+		if(count <= 3) {
+			
+			adminService.updateBusStatus(busSerialNo, status);
+			model.addObject("result", "Your  Acceptance / Rejection of Bus trip was successfully sent to the particular student ");
+			model.addObject("alertHeader", "success");
+		} else {
+			
+			model.addObject("result", "The seats of that trip was already booked");
+			model.addObject("alertHeader", "Warning !");
+		}
+		
+		
+		List<BusTripEntity> busTripEntities = adminService.getPendingBusTrip();
+		
 		model.addObject("busTrips", busTripEntities);
-		model.addObject("result", "Your  Acceptance / Rejection of Bus trip was successfully sent to the particular student ");
-		model.addObject("alertHeader", "success");
+		
 		return model;
 		
 	}

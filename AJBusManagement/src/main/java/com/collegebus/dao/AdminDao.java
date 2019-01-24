@@ -5,8 +5,6 @@ import java.util.List;
 import com.collegebus.entity.AdminEntity;
 import com.collegebus.entity.BusTripEntity;
 import com.collegebus.entity.RouteCostEntity;
-import com.collegebus.entity.StudentEntity;
-import com.collegebus.model.RouteCost;
 
 public interface AdminDao {
 
@@ -28,5 +26,7 @@ public interface AdminDao {
 	
 	
 	public void changePassword(AdminEntity adminEntity);
+	
+	public List checkAvailabilityOfBusSeats(String area, String trip);
 
 }

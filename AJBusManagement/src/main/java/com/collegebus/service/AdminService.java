@@ -7,7 +7,6 @@ import com.collegebus.entity.BusTripEntity;
 import com.collegebus.entity.RouteCostEntity;
 import com.collegebus.model.AdminRouteCostModel;
 import com.collegebus.model.PasswordChangeModel;
-import com.collegebus.model.RouteCost;
 
 public interface AdminService {
 
@@ -28,4 +27,6 @@ public interface AdminService {
 	public List<RouteCostEntity> getAllRouteCost();
 	
 	public void changePassword(PasswordChangeModel passwordChangeModel);
+	
+	public List checkAvailabilityOfBusSeats(String area, String trip);
 }

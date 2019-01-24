@@ -2,6 +2,7 @@ package com.collegebus.daoImpl;
 
 import java.util.List;
 
+import org.hibernate.Query;
 import javax.transaction.Transactional;
 
 import org.hibernate.Criteria;
@@ -14,7 +15,6 @@ import com.collegebus.dao.AdminDao;
 import com.collegebus.entity.AdminEntity;
 import com.collegebus.entity.BusTripEntity;
 import com.collegebus.entity.RouteCostEntity;
-import com.collegebus.model.RouteCost;
 
 @Repository
 @Transactional
@@ -88,6 +88,14 @@ public class AdminDaoImpl implements AdminDao {
 		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(BusTripEntity.class);
 		List<BusTripEntity> busTripEntities = (List<BusTripEntity>) criteria.add(Restrictions.eq("finalStatus",true )).list();
 		return busTripEntities;
+	}
+
+	@Override
+	public List checkAvailabilityOfBusSeats(String route, String tripNo) {
+		// TODO Auto-generated method stub
+		Query q = (Query)sessionFactory.getCurrentSession().createQuery("SELECT COUNT(serialNo) FROM BusTripEntity WHERE(finalStatus = true AND area = route AND trip = tripNo)");
+		List list = (List) q.list();
+		return list;
 	}
 
 }
