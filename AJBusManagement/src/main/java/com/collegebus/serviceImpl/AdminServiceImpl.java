@@ -128,7 +128,7 @@ public class AdminServiceImpl implements AdminService {
 	
 
 	@Override
-	public List checkAvailabilityOfBusSeats(String area, String trip) {
+	public Integer checkAvailabilityOfBusSeats(String area, String trip) {
 		// TODO Auto-generated method stub
 		return adminDao.checkAvailabilityOfBusSeats(area,trip);
 	}

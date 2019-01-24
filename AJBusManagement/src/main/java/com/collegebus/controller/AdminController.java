@@ -124,11 +124,9 @@ public class AdminController {
 		
 		BusTripEntity busTripEntity = adminService.getBusTripBySerialNo(busSerialNo);
 		
-		List list= adminService.checkAvailabilityOfBusSeats(busTripEntity.getArea(),busTripEntity.getTrip());
-	
-		Integer count = list.size();
-		System.out.print(count);
-		if(count <= 3) {
+		Integer allotedBusSeats = adminService.checkAvailabilityOfBusSeats(busTripEntity.getArea(),busTripEntity.getTrip());		
+		
+		if(allotedBusSeats <= 3) {
 			
 			adminService.updateBusStatus(busSerialNo, status);
 			model.addObject("result", "Your  Acceptance / Rejection of Bus trip was successfully sent to the particular student ");

@@ -91,11 +91,11 @@ public class AdminDaoImpl implements AdminDao {
 	}
 
 	@Override
-	public List checkAvailabilityOfBusSeats(String route, String tripNo) {
-		// TODO Auto-generated method stub
-		Query q = (Query)sessionFactory.getCurrentSession().createQuery("SELECT COUNT(serialNo) FROM BusTripEntity WHERE(finalStatus = true AND area = route AND trip = tripNo)");
-		List list = (List) q.list();
-		return list;
+	public Integer checkAvailabilityOfBusSeats(String route, String tripNo) {		
+		Query q = (Query) sessionFactory.getCurrentSession().createQuery("SELECT COUNT(serialNo) FROM BusTripEntity busTrip WHERE finalStatus = true AND area = '"+route+"' AND trip = '"+tripNo+"'");
+		Long list = (Long) q.uniqueResult();
+		Integer allotedBusSeats = list.intValue();
+		return allotedBusSeats;
 	}
 
 }

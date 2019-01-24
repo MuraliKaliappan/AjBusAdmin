@@ -28,5 +28,5 @@ public interface AdminService {
 	
 	public void changePassword(PasswordChangeModel passwordChangeModel);
 	
-	public List checkAvailabilityOfBusSeats(String area, String trip);
+	public Integer checkAvailabilityOfBusSeats(String area, String trip);
 }
